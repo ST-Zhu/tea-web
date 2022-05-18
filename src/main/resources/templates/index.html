@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+    <meta name="Keywords"
+          content="bootstrap admin template, admin template ,admin panel template ,bootstrap 4 admin template ,bootstrap admin ,admin dashboard template ,bootstrap admin panel ,bitcoin dashboard ,crypto dashboard ,btc dashboard ,cryptocurrency dashboard ,bitcoin template ,cryptocurrency template ,crypto template ,cryptocurrency dashboard template ,cryptocurrency admin template ,crypto admin template ,btconline dashboard ,ryptocurrency dashboard template ,crypto admin template ,crypto trading dashboard ,cryptocurrency admin template "/>
+
+    <title>茶园管理系统</title>
+    <link rel="stylesheet" href="/front/css/style.css">
+<!--    <link rel="stylesheet" href="/front/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="/front/css/main.css">-->
+<!--    <link rel="stylesheet" href="/front/css/css.css">-->
+</head>
+<body>
+<div id="loading">
+    <div id="loading-center"></div>
+</div>
+<div class="wrapper">
+
+    <!--左侧导航栏-->
+    <div th:include="template :: main-sidebar-user"></div>
+
+    <!-- Page Content  -->
+    <div id="content-page" class="content-page">
+
+        <div th:include="template :: main-header-user"></div>
+
+        <div class="container-fluid">
+            <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                    <div class="iq-header-title">
+                        <h4 class="card-title"></h4>
+                    </div>
+                </div>
+                <div class="iq-card-body">
+                    <ul class="row lbgl lbgl2">
+                        <li class="">
+                            <div class="card"><img class="card-img-top img-fluid" src="/preImg/tea/tea01.png">
+                                <div class="card-body">
+                                    <span class="card-title" style="font-size: 12px">茶叶茶树种植的自然条件包括地貌、气候、土壤类型等。地形以丘陵为主，排水条件要好。</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="">
+                            <div class="card"><img class="card-img-top img-fluid" src="/preImg/tea/tea02.png">
+                                <div class="card-body">
+                                    <span class="card-title" style="font-size: 12px">茶水可以去垢涤腻，所以洗过头发之后，再用茶水洗涤，可以使头发乌黑柔软，富有光泽。而且茶水不含化学剂，不会伤到头发和皮肤。</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="">
+                            <div class="card"><img class="card-img-top img-fluid" src="/preImg/tea/tea03.png">
+                                <div class="card-body">
+                                    <span class="card-title" style="font-size: 12px">春茶由于茶树营养物质丰富，故而叶肉肥厚，芳香物质和维生素含量较高，滋味鲜爽，香气强烈，外形条索紧结重实。通常绿茶色泽绿润，红茶乌润，品质较好。</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="">
+                            <div class="card"><img class="card-img-top img-fluid" src="/preImg/tea/tea04.png">
+                                <div class="card-body">
+                                    <span class="card-title" style="font-size: 12px">黑土地是大自然给予人类的得天独厚的宝藏，是一种性状好、肥力高，非常适合植物生长的土壤，也是世界上最肥沃的土壤。</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="">
+                            <div class="card"><img class="card-img-top img-fluid" src="/preImg/tea/tea05.png">
+                                <div class="card-body">
+                                    <span class="card-title" style="font-size: 12px">黄土粉土含量高、碎屑矿物、缝隙大，不适合用作种植土壤。</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="iq-card">
+                <div class="tablebox">
+                    <table class="table">
+                        <thead>
+                        <tr style="padding: 5px">
+                            <th style="text-align:center;width:40px;">序号</th>
+                            <th style="text-align:center;width:60px;">名称</th>
+                            <th style="text-align:center;width:120px;">类型</th>
+                            <th style="text-align:center;width:400px;">特点</th>
+                            <th style="text-align:center;width:40px;">生产日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="result:${result}">
+                            <td style="text-align:center" th:text="${resultStat.index+1}"></td>
+                            <td style="text-align:center" th:text="${result.productName}"></td>
+                            <td style="text-align:center" th:text="${result.productStyle}"></td>
+                            <td style="text-align:center" th:text="${result.productDescribe}"></td>
+                            <td style="text-align:center"
+                                th:text="${#dates.format(result.productCreateTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div th:include="template :: footer-user"></div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+
+<script src="/front/js/jquery.min.js" type="text/javascript"></script>
+<script src="/front/js/jquery.min.js"></script>
+<script src="/front/js/bootstrap.min.js"></script>
+<script src="/front/js/smooth-scrollbar.js"></script>
+<script src="/front/js/custom.js"></script>
+<script src="/front/laydate/laydate.js"></script>
+<script src="/front/js/bootstrap.bundle.min.js"></script>
+<script src="/front/js/moment.js"></script>
+<script>
+    lay('#version').html('-v' + laydate.v);
+    laydate.render({
+        elem: '#date'
+        , range: true
+        , theme: '#2c9eae'
+    });
+</script>
+</body>
+</html>
